@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="ReplayFence workbench" width="100%" />
+<img src="./demo/readme-openclaw-skill-overview.png" alt="ReplayFence running from an installed OpenClaw skill" width="100%" />
 
 # ReplayFence
 
-### ReplayFence blocks duplicate agent actions on Pharos in 60 seconds.
+### An OpenClaw Skill that blocks duplicate agent actions on Pharos in 60 seconds.
 
 *Run one safe agent action, replay the exact same fingerprint, and inspect the Pharos receipt plus proof capsule without trusting a narrator.*
 
@@ -37,26 +37,37 @@ ReplayFence turns the usual private idempotency log into a reusable Skill primit
 
 ## Demo Path
 
+This path starts with a normal user prompt inside OpenClaw, then shows the same replay guard from the user workbench and verifier.
+
 <table>
   <tr>
-    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="ReplayFence first screen" /></td>
-    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="Replay rejection workbench" /></td>
+    <td width="50%"><img src="./demo/readme-openclaw-typed-prompt.png" alt="User prompt typed inside OpenClaw TUI" /></td>
+    <td width="50%"><img src="./demo/readme-openclaw-result.png" alt="OpenClaw agent result after using ReplayFence skill" /></td>
   </tr>
   <tr>
-    <td><b>1.</b> Open the workbench and start as a guest.</td>
-    <td><b>2.</b> Reveal first consume, then replay the same action.</td>
+    <td><b>1.</b> Type a short user prompt inside OpenClaw TUI.</td>
+    <td><b>2.</b> The agent loads the installed Skill and reports the duplicate was blocked.</td>
   </tr>
   <tr>
-    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="Capsule verifier" /></td>
-    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="Mobile first run" /></td>
+    <td width="50%"><img src="./demo/readme-workbench-replay.png" alt="ReplayFence workbench showing first consume and replay rejection" /></td>
+    <td width="50%"><img src="./demo/readme-capsule-verify.png" alt="ReplayFence capsule verifier" /></td>
   </tr>
   <tr>
-    <td><b>3.</b> Verify the capsule or live Pharos report.</td>
-    <td><b>4.</b> The first screen remains usable on mobile.</td>
+    <td><b>3.</b> Inspect first consume and exact replay rejection side by side.</td>
+    <td><b>4.</b> Verify the capsule or live Pharos report.</td>
   </tr>
 </table>
 
 ## Quick Start
+
+Install the Skill into OpenClaw first:
+
+```bash
+npx --yes openclaw skills install ./skills/replayfence --as replayfence --force
+npx --yes openclaw skills info replayfence
+```
+
+Then run the local Skill proof:
 
 ```bash
 npm install
@@ -65,11 +76,9 @@ npm run replayfence:showcase
 npm run replayfence:verify
 ```
 
-To try it through OpenClaw, install the skill first, then type a normal prompt in the TUI:
+To try it through a normal prompt, open the TUI:
 
 ```bash
-npx --yes openclaw skills install ./skills/replayfence --as replayfence --force
-npx --yes openclaw skills info replayfence
 npx --yes openclaw --no-color tui --local --timeout-ms 600000
 ```
 
