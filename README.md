@@ -9,6 +9,9 @@
 *Run one safe agent action, replay the exact same fingerprint, and inspect the Pharos receipt plus proof capsule without trusting a narrator.*
 
 **Quick links:**
+[Live app](https://replayfence-pharos.pages.dev/) ·
+[OpenClaw demo page](https://replayfence-pharos.pages.dev/openclaw-demo) ·
+[Public narrated video](https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4) ·
 [OpenClaw evidence](./demo/openclaw-install.md) ·
 [TUI prompt report](./.hunter/openclaw-tui-interactive.report.json) ·
 [Narrated skill demo](./pitch/recording/replayfence-skill-demo-english-narrated.mp4) ·
@@ -63,6 +66,14 @@ npm run dev -- --port 4387
 ```
 
 Open <http://127.0.0.1:4387>, click `Try as Guest`, then click `Fence + Execute Once` and `Replay Same Action`.
+
+Public judge path:
+
+- Live app: <https://replayfence-pharos.pages.dev/>
+- OpenClaw prompt demo: <https://replayfence-pharos.pages.dev/openclaw-demo>
+- Browser workbench: <https://replayfence-pharos.pages.dev/try>
+- Capsule verifier: <https://replayfence-pharos.pages.dev/verify>
+- Public video: <https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4>
 
 Run the evidence checks:
 

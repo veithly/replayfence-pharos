@@ -1,0 +1,24 @@
+{
+  "$schema": "hackathonhunter.submission-manifest.v1",
+  "project": "ReplayFence",
+  "hackathon": "Pharos Skill-to-Agent Dual Cascade Hackathon Phase 1",
+  "platform": "DoraHacks",
+  "status": "ready-for-human-submit-confirmation",
+  "live_url": "https://replayfence-pharos.pages.dev/",
+  "openclaw_demo_url": "https://replayfence-pharos.pages.dev/openclaw-demo",
+  "workbench_url": "https://replayfence-pharos.pages.dev/try",
+  "verify_url": "https://replayfence-pharos.pages.dev/verify",
+  "docs_url": "https://replayfence-pharos.pages.dev/docs/skill",
+  "repo_url": "https://github.com/veithly/replayfence-pharos",
+  "video_url": "https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4",
+  "caption_url": "https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-captions.vtt",
+  "pharos": {
+    "network": "Pharos Atlantic Testnet",
+    "chain_id": 688689,
+    "registry": "0xf3cb65898bc692495c64e2fa3981acbab2770a73",
+    "deploy_tx": "0xba7cf7df008b812a8ffefecc7688929531496f1a6bb3030fcb331365be5c399d",
+    "first_consume_tx": "0x7dcfe6f8306168d8c36730ea41b37606e54a294cc4931fcf268dd8aecc74941d",
+    "reverted_replay_tx": "0xf428dbdf2915bad77a6cc2fa8b6d6a554c98d77f8e21407fdc462cdcbbdabe6d"
+  },
+  "human_confirmation_required_before_final_click": true
+}

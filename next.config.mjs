@@ -1,6 +1,6 @@
 const nextConfig = {
-  devIndicators: false
+  devIndicators: false,
+  output: "export"
 };
 
 export default nextConfig;
-

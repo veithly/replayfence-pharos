@@ -1,5 +1,19 @@
 # ReplayFence Evidence Log
 
+## Public Deployment
+
+- Live app: `https://replayfence-pharos.pages.dev/`
+- OpenClaw demo route: `https://replayfence-pharos.pages.dev/openclaw-demo`
+- Browser workbench: `https://replayfence-pharos.pages.dev/try`
+- Capsule history: `https://replayfence-pharos.pages.dev/capsules`
+- Capsule verifier: `https://replayfence-pharos.pages.dev/verify`
+- Skill docs: `https://replayfence-pharos.pages.dev/docs/skill`
+- Public narrated video: `https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4`
+- Public captions: `https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-captions.vtt`
+- GitHub repo: `https://github.com/veithly/replayfence-pharos`
+- Cloudflare Pages project: `replayfence-pharos`
+- Deployment smoke: homepage, `/openclaw-demo`, `/try`, `/capsules`, `/verify`, `/docs/skill`, narrated MP4, and captions returned HTTP 200 on June 11, 2026.
+
 ## OpenClaw
 
 - Interactive TUI report: `.hunter/openclaw-tui-interactive.report.json`

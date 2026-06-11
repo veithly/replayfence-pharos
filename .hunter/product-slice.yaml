@@ -9,7 +9,7 @@ single_sentence_output: "A ReplayFence Capsule JSON containing action hash, latc
 primary_actor: "Guest judge or agent developer using the hosted demo"
 secondary_actor_or_return_flow: "Reviewer reopens capsule history or verifies exported capsule in a second browser context"
 
-public_url: "Pending G5 deploy to Cloudflare Workers via OpenNext after local runtime passes; target route is the public /try guest hero path"
+public_url: "https://replayfence-pharos.pages.dev/ with public hero path at https://replayfence-pharos.pages.dev/try"
 demo_credentials: "No credentials required; guest session cookie and restricted server-side relayer cover the hero path"
 
 core_loop_steps:
@@ -33,6 +33,9 @@ sponsor_user_moment: "The judge sees a Pharos tx consume the latch, then the sam
 sponsor_state_change: "Without Pharos, the latch becomes a private database flag and the public proof capsule loses its core verification value"
 
 proof_links:
+  - "https://replayfence-pharos.pages.dev/"
+  - "https://replayfence-pharos.pages.dev/openclaw-demo"
+  - "https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4"
   - "demo/openclaw-install.out"
   - "demo/replayfence-capsule.json"
   - "pitch/project_prd.md#13-success-metrics"
