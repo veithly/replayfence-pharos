@@ -1,0 +1,32 @@
+{
+  "schema": "replayfence.openclaw-terminal-cues.v1",
+  "generatedAt": "2026-06-11T03:48:43.600Z",
+  "sourceTranscripts": [
+    "demo/openclaw-install.out",
+    "demo/openclaw-skill-showcase.out",
+    "demo/openclaw-skill-verify.out"
+  ],
+  "output": "/Users/rick/Documents/Project/Hackathon/Pharos/pitch/recording/openclaw-skill-demo.webm",
+  "cues": [
+    {
+      "id": "01-install",
+      "title": "Install ReplayFence into OpenClaw",
+      "at_ms": 2
+    },
+    {
+      "id": "02-info",
+      "title": "OpenClaw sees the skill",
+      "at_ms": 3812
+    },
+    {
+      "id": "03-run",
+      "title": "Run the installed workspace skill",
+      "at_ms": 12007
+    },
+    {
+      "id": "04-verify",
+      "title": "Verify the exported capsule",
+      "at_ms": 31490
+    }
+  ]
+}

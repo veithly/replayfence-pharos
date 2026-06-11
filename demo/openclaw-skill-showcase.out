@@ -1,0 +1,38 @@
+ReplayFence OpenClaw Skill Demo
+
+Mode: local-demo
+Purpose: prove a normal installed skill can canonicalize one agent action, consume it once, reject the exact replay, and export a capsule.
+
+1. Canonicalize action
+  label: Agent payout intent: invoice-042
+  tool: demoTreasury.requestPayout
+  actor scope: openclaw-guest-demo
+  volatile fields stripped: timestamp
+  canonical SHA-256: 0xdd7634577227cb76521993f968a38f3fca5f581a579c94b49cdff45be3186ede
+
+2. Derive latch
+  chain id: 688689
+  registry: 0x000000000000000000000000000000000000f3ce
+  latch key: 0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d
+
+3. Execute twice
+  first attempt: CONSUMED
+  replay attempt: REPLAY_REJECTED
+  replay reason: same latch key already consumed
+
+4. Export capsule
+  capsule id: capsule_fcfb807cd480ae16
+  capsule path: /Users/rick/Documents/Project/Hackathon/Pharos/demo/replayfence-capsule.json
+  verifier hint: node scripts/replayfence.mjs verify --capsule /Users/rick/Documents/Project/Hackathon/Pharos/demo/replayfence-capsule.json --format pretty
+
+Live Pharos evidence attached
+  report: /Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json
+  status: CONSUMED_AND_REPLAY_REJECTED
+  registry: 0xf3cb65898bc692495c64e2fa3981acbab2770a73
+  first consume tx: 0x7dcfe6f8...cc74941d
+  replay tx: 0xf428dbdf...bbdabe6d
+  replay status: REPLAY_REJECTED
+  decoded error: ReplayFenceReplay
+
+Honesty boundary
+  This run is local-demo evidence. Only an attached Pharos report or live Pharos command proves chain state.

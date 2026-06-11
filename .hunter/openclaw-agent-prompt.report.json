@@ -1,0 +1,109 @@
+{
+  "schema": "replayfence.openclaw-agent-prompt.report.v1",
+  "generatedAt": "2026-06-11T09:13:25.095Z",
+  "verdict": "verified",
+  "goal": "Prove a normal OpenClaw agent can use the installed ReplayFence skill from a prompt using the stepfun model route.",
+  "config": {
+    "provider": "stepfun",
+    "model": "step-3.7-flash",
+    "harness": "openclaw",
+    "runner": "embedded",
+    "fallbackUsed": false,
+    "keySource": "$HOME/use_key.txt -> OpenClaw stepfun provider config",
+    "keyPrinted": false
+  },
+  "prompt": "demo/openclaw-agent-prompt.md",
+  "command": "set -a; source \"$HOME/use_key.txt\" >/dev/null 2>&1; set +a\nPROMPT=\"$(cat demo/openclaw-agent-prompt.md)\"\nnpx --yes openclaw --no-color --log-level silent agent --local --agent main --model stepfun/step-3.7-flash --session-key agent:main:replayfence-prompt-video-1781169029004 --message \"$PROMPT\" --timeout 600 --verbose on --json",
+  "sessionKey": "agent:main:replayfence-prompt-video-1781169029004",
+  "sessionFile": "/Users/rick/.openclaw/agents/main/sessions/0ced7e91-ad6e-4bff-adfa-cc635f8d89df.jsonl",
+  "evidence": {
+    "agentJson": "demo/openclaw-agent-video-output.json",
+    "rawLog": "demo/openclaw-agent-video-output.raw.log",
+    "summary": "demo/openclaw-agent-video-summary.json",
+    "sessionEvents": "demo/openclaw-agent-video-session-events.json",
+    "capsule": "demo/openclaw-agent-replayfence-capsule.json",
+    "demoOutput": "demo/openclaw-agent-demo-output.json",
+    "verifyOutput": "demo/openclaw-agent-verify-output.json",
+    "skillTranscript": "demo/openclaw-agent-skill-showcase.out",
+    "pharosReport": "demo/pharos-consume-report.json",
+    "videoMp4": "pitch/recording/openclaw-agent-prompt-demo.mp4",
+    "videoWebm": "pitch/recording/openclaw-agent-prompt-demo.webm",
+    "videoCues": "pitch/recording/openclaw-agent-prompt-demo-cues.json",
+    "qaFrames": [
+      "pitch/recording/qa-frames-agent/agent-06-model.png",
+      "pitch/recording/qa-frames-agent/agent-27-run.png",
+      "pitch/recording/qa-frames-agent/agent-52-result.png"
+    ]
+  },
+  "openclaw": {
+    "replayfenceVisible": true,
+    "toolSummary": {
+      "calls": 3,
+      "tools": [
+        "read",
+        "exec"
+      ],
+      "failures": 0
+    },
+    "toolCalls": [
+      {
+        "name": "read",
+        "path": "/Users/rick/.openclaw/workspace/skills/replayfence/SKILL.md"
+      },
+      {
+        "name": "exec",
+        "command": "mkdir -p /Users/rick/Documents/Project/Hackathon/Pharos/demo && node /Users/rick/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs demo --reset --format pretty --out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --transcript /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-skill-showcase.out --json-out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-demo-output.json --pharos-report /Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json"
+      },
+      {
+        "name": "exec",
+        "command": "node /Users/rick/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs verify --capsule /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --format pretty --json-out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-verify-output.json"
+      }
+    ]
+  },
+  "replayfence": {
+    "capsulePath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json",
+    "verifyPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-verify-output.json",
+    "pharosPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json",
+    "environment": "local-demo",
+    "capsuleId": "capsule_04ad8832bca63730",
+    "firstStatus": "CONSUMED",
+    "replayStatus": "REPLAY_REJECTED",
+    "latchKey": "0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d",
+    "verifyStatus": "VERIFIED",
+    "pharosStatus": "CONSUMED_AND_REPLAY_REJECTED",
+    "chainId": 688689,
+    "registryAddress": "0xf3cb65898bc692495c64e2fa3981acbab2770a73"
+  },
+  "timecodes": [
+    {
+      "id": "01-model",
+      "title": "StepFun model route inside OpenClaw",
+      "at_ms": 22
+    },
+    {
+      "id": "02-skill",
+      "title": "ReplayFence skill visible to the agent",
+      "at_ms": 7386
+    },
+    {
+      "id": "03-prompt",
+      "title": "Prompt sent to OpenClaw",
+      "at_ms": 13576
+    },
+    {
+      "id": "04-agent",
+      "title": "Live OpenClaw agent turn",
+      "at_ms": 21997
+    },
+    {
+      "id": "05-tools",
+      "title": "OpenClaw session tool calls",
+      "at_ms": 41100
+    },
+    {
+      "id": "06-result",
+      "title": "ReplayFence result produced by the agent",
+      "at_ms": 47196
+    }
+  ]
+}

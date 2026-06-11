@@ -1,0 +1,42 @@
+$schema: product-slice.v1
+rule: "One complete workflow is the unit of success. A homepage plus one mocked result is a shell."
+
+user: "AI agent developer or hackathon judge evaluating a replay-safe Skill on Pharos"
+job_to_be_done: "Install ReplayFence in OpenClaw, run one side-effecting agent action once, reject the exact replay, and export proof that the latch was consumed"
+single_sentence_promise: "Install one reusable skill, fence one agent action, reject the duplicate, and hand the user a proof capsule"
+single_sentence_output: "A ReplayFence Capsule JSON containing action hash, latch key, Pharos tx, replay status, and verifier report"
+
+primary_actor: "Guest judge or agent developer using the hosted demo"
+secondary_actor_or_return_flow: "Reviewer reopens capsule history or verifies exported capsule in a second browser context"
+
+public_url: "Pending G5 deploy to Cloudflare Workers via OpenNext after local runtime passes; target route is the public /try guest hero path"
+demo_credentials: "No credentials required; guest session cookie and restricted server-side relayer cover the hero path"
+
+core_loop_steps:
+  - "Install the local skill with openclaw skills install ./skills/replayfence --as replayfence --force"
+  - "Run the seeded safe action through the ReplayFence skill demo or workbench"
+  - "Replay the identical canonical action and receive REPLAY_REJECTED with the same latch key"
+  - "Open, verify, and export the saved ReplayFence Capsule from history or detail"
+
+real_output_type: "Pharos transaction receipt plus saved ReplayFence Capsule JSON and verification report"
+history_surface: "/capsules and /capsules/[capsuleId]"
+
+empty_states:
+  - "Capsule history says no capsules yet and routes to /try to fence the first action"
+loading_states:
+  - "Action Sandbox timeline names canonicalization, latch derivation, gas estimate, and Pharos submission while work is in progress"
+error_states:
+  - "Typed errors distinguish RPC unavailable, relayer unavailable, gas failure, replay revert, proof unavailable, and invalid capsule JSON with retry paths"
+
+sponsor_component: "Pharos Atlantic Testnet chainId 688689, PharosScan explorer, OnceLatchRegistry contract, and Pharos eth_getProof proof surface"
+sponsor_user_moment: "The judge sees a Pharos tx consume the latch, then the same latch key rejects the duplicate and appears inside the capsule"
+sponsor_state_change: "Without Pharos, the latch becomes a private database flag and the public proof capsule loses its core verification value"
+
+proof_links:
+  - "demo/openclaw-install.out"
+  - "demo/replayfence-capsule.json"
+  - "pitch/project_prd.md#13-success-metrics"
+  - ".hunter/runtime-interaction.report.json after G4 runtime audit"
+  - "tests/e2e/hero-replay.spec.ts after implementation"
+  - "Pharos explorer tx link recorded in generated capsules"
+known_limits: "P0 is a testnet-safe replay guard for deterministic action fingerprints; it is not production wallet security, phishing detection, or general transaction simulation"

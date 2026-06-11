@@ -1,0 +1,103 @@
+{
+  "$schema": "implementation-matrix.v1",
+  "project": "ReplayFence",
+  "source_prd": "pitch/project_prd.md",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "priority": "P0",
+      "surface": "/",
+      "component": "GuestStartButton",
+      "api": "POST /api/demo/session",
+      "real_data_source": "guest cookie plus session storage row",
+      "state_or_contract": "guestSession.active",
+      "test": "tests/e2e/hero-replay.spec.ts",
+      "evidence": ".hunter/runtime-interaction.report.json",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-002",
+      "priority": "P0",
+      "surface": "/try",
+      "component": "ActionFencePanel",
+      "api": "POST /api/actions/fence",
+      "real_data_source": "Pharos Atlantic tx receipt",
+      "state_or_contract": "OnceLatchRegistry.consume",
+      "test": "tests/e2e/hero-replay.spec.ts",
+      "evidence": "capsule firstTxHash and Pharos explorer link",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-003",
+      "priority": "P0",
+      "surface": "/try",
+      "component": "ReplayButton",
+      "api": "POST /api/actions/replay",
+      "real_data_source": "contract replay revert or consumed precheck",
+      "state_or_contract": "run.status=REPLAY_REJECTED",
+      "test": "tests/e2e/hero-replay.spec.ts",
+      "evidence": "runtime screenshot and run event",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-004",
+      "priority": "P0",
+      "surface": "/capsules/[capsuleId]",
+      "component": "ProofCapsuleInspector",
+      "api": "GET /api/capsules/[capsuleId]",
+      "real_data_source": "capsule storage row plus exported JSON",
+      "state_or_contract": "capsule.status=READY",
+      "test": "tests/e2e/hero-replay.spec.ts",
+      "evidence": "downloaded replayfence-capsule JSON",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-005",
+      "priority": "P0",
+      "surface": "/verify",
+      "component": "CapsuleVerifier",
+      "api": "POST /api/verify",
+      "real_data_source": "pasted or stored capsule JSON",
+      "state_or_contract": "verify.latchKeyMatch=true",
+      "test": "tests/unit/latch.spec.ts and tests/e2e/verify.spec.ts",
+      "evidence": "verification report",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-006",
+      "priority": "P0",
+      "surface": "/docs/skill",
+      "component": "SkillInstallWizard",
+      "api": "packages/replayfence-skill exports",
+      "real_data_source": "SDK source and deployed contract metadata",
+      "state_or_contract": "TypeScript types compile",
+      "test": "tests/unit/canonicalize.spec.ts",
+      "evidence": "README and docs route",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-007",
+      "priority": "P0",
+      "surface": "/capsules/[capsuleId]",
+      "component": "ProofPanel",
+      "api": "POST /api/proof/fetch",
+      "real_data_source": "Pharos eth_getProof or honest unavailable status",
+      "state_or_contract": "derived storage slot for latches[latchKey]",
+      "test": "tests/unit/proof-slot.spec.ts",
+      "evidence": "proof panel screenshot",
+      "status": "planned"
+    },
+    {
+      "id": "REQ-008",
+      "priority": "P0",
+      "surface": "/runs/[runId] and /capsules",
+      "component": "RunTimeline and CapsuleHistoryTable",
+      "api": "GET /api/runs/[runId] and GET /api/capsules",
+      "real_data_source": "persisted owner-scoped run/capsule records",
+      "state_or_contract": "guestSessionId ownership",
+      "test": "tests/e2e/history.spec.ts",
+      "evidence": "runtime refresh report",
+      "status": "planned"
+    }
+  ]
+}

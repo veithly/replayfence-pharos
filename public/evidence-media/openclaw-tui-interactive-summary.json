@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-06-11T15:35:46.238Z",
+  "proofMode": "interactive-openclaw-tui",
+  "sessionKey": "replayfence-tui-interactive-1781192116230",
+  "prompt": "Can you use ReplayFence to protect a payout for me? Run it once, try the exact same payout again, verify the proof capsule, and tell me whether the duplicate was blocked. Please include the capsule path and finish with: ReplayFence check complete.",
+  "typedPrompt": true,
+  "noMessageFlag": true,
+  "command": "npx --yes openclaw --no-color tui --local --session replayfence-tui-interactive-1781192116230 --timeout-ms 600000",
+  "keySource": "$HOME/use_key.txt -> OpenClaw stepfun provider config",
+  "keyPrinted": false,
+  "provider": "stepfun",
+  "model": "step-3.7-flash",
+  "sessionFile": "/Users/rick/.openclaw/agents/main/sessions/d927e78a-23ea-4593-a2eb-cd45b169d8f2.jsonl",
+  "trajectoryFile": "/Users/rick/.openclaw/agents/main/sessions/d927e78a-23ea-4593-a2eb-cd45b169d8f2.trajectory.jsonl",
+  "rawTuiTypescript": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-tui-interactive.typescript",
+  "sessionEvents": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-tui-interactive-session-events.json",
+  "artifacts": {
+    "capsulePath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-tui-replayfence-capsule.json",
+    "verifyPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-tui-verify-output.json",
+    "demoPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-tui-demo-output.json",
+    "transcriptPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-tui-skill-showcase.out",
+    "pharosPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json",
+    "environment": "local-demo",
+    "capsuleId": "capsule_f17b29a188bd7390",
+    "firstStatus": "CONSUMED",
+    "replayStatus": "REPLAY_REJECTED",
+    "latchKey": "0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d",
+    "verifyStatus": "VERIFIED",
+    "pharosStatus": "CONSUMED_AND_REPLAY_REJECTED",
+    "chainId": 688689,
+    "registryAddress": "0xf3cb65898bc692495c64e2fa3981acbab2770a73"
+  },
+  "toolSummary": {
+    "calls": 4,
+    "tools": [
+      "read",
+      "exec"
+    ],
+    "failures": 0
+  }
+}

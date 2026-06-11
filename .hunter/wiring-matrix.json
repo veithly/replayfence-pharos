@@ -1,0 +1,75 @@
+{
+  "$schema": "replayfence.wiring-matrix.v1",
+  "generatedAt": "2026-06-11T01:13:00+08:00",
+  "devUrl": "http://127.0.0.1:4387",
+  "routes": [
+    {
+      "route": "/",
+      "surface": "Workbench",
+      "status": "wired",
+      "dataSources": [
+        "demo/pharos-deploy-report.json",
+        "demo/pharos-consume-report.json",
+        "demo/replayfence-capsule.json"
+      ],
+      "primaryActions": ["Try as Guest", "OpenClaw proof"],
+      "evidence": [".hunter/screenshots/home.png", ".hunter/screenshots/home-mobile.png"]
+    },
+    {
+      "route": "/openclaw-demo",
+      "surface": "OpenClaw install transcript",
+      "status": "wired",
+      "dataSources": ["demo/openclaw-install.out", "demo/openclaw-skill-showcase.out", "demo/replayfence-capsule.json"],
+      "primaryActions": ["Open workbench", "Inspect local capsule"],
+      "evidence": ["demo/openclaw-install.md", ".hunter/openclaw-install.report.json"]
+    },
+    {
+      "route": "/try",
+      "surface": "Action replay workbench",
+      "status": "wired",
+      "dataSources": ["skills/replayfence/assets/demo-action.json", "demo/pharos-consume-report.json"],
+      "primaryActions": ["Fence + Execute Once", "Replay Same Action", "Reset View"],
+      "evidence": [".hunter/screenshots/try.png", ".hunter/screenshots/try-replayed.png"]
+    },
+    {
+      "route": "/capsules",
+      "surface": "Capsule history",
+      "status": "wired",
+      "dataSources": ["demo/replayfence-capsule.json", "demo/pharos-consume-report.json"],
+      "primaryActions": ["Inspect capsule", "Verify capsule"],
+      "evidence": ["src/app/capsules/page.jsx"]
+    },
+    {
+      "route": "/capsules/[capsuleId]",
+      "surface": "Capsule detail",
+      "status": "wired",
+      "dataSources": ["demo/replayfence-capsule.json", "demo/pharos-consume-report.json"],
+      "primaryActions": ["Copy hashes", "Open PharosScan receipts", "Inspect raw JSON"],
+      "evidence": ["src/app/capsules/[capsuleId]/page.jsx"]
+    },
+    {
+      "route": "/verify",
+      "surface": "Browser verifier",
+      "status": "wired",
+      "dataSources": ["demo/replayfence-capsule.json", "demo/pharos-consume-report.json"],
+      "primaryActions": ["Verify", "Load local capsule", "Load Pharos report"],
+      "evidence": [".hunter/screenshots/verify.png"]
+    },
+    {
+      "route": "/docs/skill",
+      "surface": "Skill integration docs",
+      "status": "wired",
+      "dataSources": ["stack.lock.json", "demo/pharos-deploy-report.json"],
+      "primaryActions": ["Copy OpenClaw install", "Copy SDK snippet", "Copy contract call"],
+      "evidence": ["src/app/docs/skill/page.jsx", "src/app/docs/skill/skill-tabs.jsx"]
+    }
+  ],
+  "browserSmoke": {
+    "status": "passed",
+    "tool": "playwright",
+    "checkedRoutes": ["/", "/openclaw-demo", "/try", "/capsules", "/verify", "/docs/skill"],
+    "clicked": ["fence-run-button", "replay-same-action-button", "verify-capsule-button"],
+    "consoleErrors": 0,
+    "pageErrors": 0
+  }
+}

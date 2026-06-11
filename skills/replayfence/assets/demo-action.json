@@ -1,0 +1,14 @@
+{
+  "label": "Agent payout intent: invoice-042",
+  "toolId": "demoTreasury.requestPayout",
+  "actorScope": "openclaw-guest-demo",
+  "target": "demo-treasury",
+  "method": "requestPayout",
+  "params": {
+    "invoiceId": "invoice-042",
+    "amount": "100",
+    "unit": "DEMO"
+  },
+  "risk": "duplicate payout if replayed",
+  "timestamp": "volatile-field-ignored"
+}

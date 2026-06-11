@@ -1,0 +1,63 @@
+$schema: runtime-gates.v1
+rule: "Works on my machine is not evidence. Runtime gates must cover browsers, devices, states, performance, and security."
+
+browsers:
+  - chromium
+  - firefox
+  - webkit
+
+devices:
+  - name: "iPhone 13"
+    browser: webkit
+  - name: "Pixel 7"
+    browser: chromium
+
+core_flows:
+  - landing_to_first_action
+  - first_run_to_real_result
+  - replay_rejection
+  - refresh_persistence
+  - history_or_second_role
+  - sponsor_dependent_feature
+  - negative_validation_or_error_path
+
+a11y_pages:
+  - "/"
+  - "/try"
+  - "/capsules"
+  - "/capsules/[capsuleId]"
+  - "/verify"
+  - "/docs/skill"
+
+lighthouse_pages:
+  - "/"
+  - "/try"
+  - "/capsules/[capsuleId]"
+
+performance_thresholds:
+  lcp_ms: 2500
+  inp_ms: 200
+  cls: 0.1
+  lighthouse_performance_min: 85
+  lighthouse_accessibility_min: 90
+
+security_checks:
+  - "No secrets in client bundle, repo, console output, capsule export, or public docs"
+  - "No broken access control across guest session, second browser context, or capsule history"
+  - "No unsafe HTML rendering of pasted capsule JSON or proof data"
+  - "No unresolved 4xx/5xx on the hero path"
+  - "Restricted relayer only calls OnceLatchRegistry.consume for demo-safe action fingerprints"
+
+llm_redteam_checks:
+  - "Not applicable as a non-LLM P0 app; still test pasted capsule JSON for unsafe rendering"
+  - "Not applicable retrieved-content injection; verifier treats pasted JSON as data only"
+  - "Sensitive data exfiltration case: exported capsule must not include server private key, cookies, or relayer secrets"
+  - "Unsafe output rendering case: proof/capsule fields rendered as escaped text"
+  - "Tool misuse case: relayer refuses unknown contract targets and non-demo action modes in public guest flow"
+
+required_artifacts_on_failure:
+  - playwright_trace_zip
+  - full_page_screenshot
+  - console_and_network_log
+  - reproduction_command
+  - exported_capsule_json_when_available

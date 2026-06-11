@@ -1,0 +1,23 @@
+{
+  "$schema": "replayfence.workbench-smoke.v1",
+  "generatedAt": "2026-06-11T01:13:00+08:00",
+  "devUrl": "http://127.0.0.1:4387",
+  "status": "passed",
+  "checks": {
+    "nextBuild": "passed",
+    "hunterUiLibsAudit": "passed",
+    "routesOpened": ["/", "/openclaw-demo", "/try", "/capsules", "/verify", "/docs/skill"],
+    "tryInteraction": "Fence + Execute Once -> Replay Same Action -> replay status visible",
+    "verifyInteraction": "Verify local capsule -> Local capsule verification visible",
+    "consoleErrors": 0,
+    "pageErrors": 0
+  },
+  "screenshots": {
+    "homeDesktop": ".hunter/screenshots/home.png",
+    "homeMobile": ".hunter/screenshots/home-mobile.png",
+    "tryInitial": ".hunter/screenshots/try.png",
+    "tryReplayed": ".hunter/screenshots/try-replayed.png",
+    "verify": ".hunter/screenshots/verify.png"
+  }
+}
+

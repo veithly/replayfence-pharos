@@ -1,0 +1,296 @@
+{
+  "$schema": "https://hackathonhunter.example.com/schemas/stack.lock.json",
+  "project_language": "English",
+  "require_zh_mirror": false,
+  "branch": "Web3",
+  "hackathon": {
+    "name": "Pharos Skill-to-Agent Dual Cascade Hackathon - Phase 1",
+    "url": "https://dorahacks.io/hackathon/pharos-phase1/detail",
+    "deadline": "2026-06-15T23:59:00Z"
+  },
+  "delivery_mode": "combined-pitch-demo",
+  "delivery_mode_reason": "DoraHacks online submissions are judged from project page fields and video/live links; a combined pitch+demo video is the safest primary artifact, with deck/README as supporting evidence.",
+  "video_target_duration_s": 270,
+  "video_resolution": "1920x1200",
+  "video_composer": "hyperframes",
+  "openclaw": {
+    "cli": "openclaw@2026.6.5",
+    "install_command": "npx --yes openclaw skills install ./skills/replayfence --as replayfence --force",
+    "info_command": "npx --yes openclaw skills info replayfence",
+    "installed_skill_path": "/Users/rick/.openclaw/workspace/skills/replayfence/SKILL.md",
+    "demo_command": "node skills/replayfence/scripts/replayfence.mjs demo --reset --out demo/replayfence-capsule.json",
+    "reviewer_visible_use": "OpenClaw reports replayfence ready, visible to model, and available as command before the capsule demo runs."
+  },
+  "frontend": {
+    "framework": "next@latest",
+    "styling": "tailwind@latest",
+    "dependency_policy": "frontend deps install with @latest or unversioned targets unless a verified compatibility override is recorded",
+    "visual_style_lane": "operational-dashboard / cyberpunk-terminal hybrid",
+    "primary_ui_library": "shadcn/ui with Radix primitives",
+    "supporting_ui_library": "xterm-monaco proof/code panels plus lucide-react",
+    "non_tailwind_visual_signature": "latch-state cockpit with proof rail, terminal hash panels, data-visual-lane markers, and replay rejection shock band",
+    "component_blocks": [
+      "ActionFencePanel",
+      "LatchTimeline",
+      "ProofCapsuleInspector",
+      "CapsuleVerifier",
+      "SkillInstallWizard",
+      "HexCopy",
+      "SafetyNotice"
+    ],
+    "hero_composition": "control room triptych: action card, latch timeline, proof capsule preview",
+    "visual_differentiation_note": "No purple crypto gradient or generic admin cards; proof-dense charcoal/acid control panel with explicit state machine.",
+    "forbidden_lookalikes": [
+      "generic Web3 wallet dashboard",
+      "token terminal clone",
+      "shadcn admin template",
+      "AI copilot chat app",
+      "purple crypto landing page"
+    ],
+    "qr_mobile_access": {
+      "entry": "QR code opens the live /try URL directly on mobile",
+      "mobile_primary_flow": "Try as Guest then Fence + Execute Once in two taps; sticky CTA changes to Replay and Inspect Capsule",
+      "desktop_parity_plan": "Desktop keeps a 16:10 three-column workbench with keyboard copy affordances and visible proof rail",
+      "viewports_to_test": [
+        "390x844",
+        "1920x1200"
+      ]
+    },
+    "asset_sources": {
+      "logo": "logo-generator skill output planned before final brand pack; minimum wordmark/logomark/mono/favicon/og",
+      "avatars": "none; generated guest session chip only",
+      "generated_images": [
+        "hero frame",
+        "app frame",
+        "mobile first-run",
+        "proof capsule plate",
+        "deck transition plate"
+      ],
+      "cutout_assets": {
+        "raw_dirs": [
+          "public/art/raw",
+          "pitch/illustrations/raw"
+        ],
+        "output_dirs": [
+          "public/art/cutouts",
+          "pitch/illustrations/cutouts"
+        ],
+        "command": "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/cutout_assets.mjs public/art/raw --out public/art/cutouts --brief-dir public/art/briefs --usage app-proof-plates --auto-key --trim"
+      }
+    },
+    "motion": [
+      "CSS transitions honoring prefers-reduced-motion",
+      "Framer Motion only if needed after P0"
+    ]
+  },
+  "web3": {
+    "chain": "pharos-atlantic",
+    "chainId": 688689,
+    "rpcUrl": "https://atlantic.dplabs-internal.com",
+    "explorerUrl": "https://atlantic.pharosscan.xyz",
+    "winnerThesis": {
+      "trackProblem": "agent tool retries can duplicate side effects, and private idempotency logs are hard for judges or downstream agents to verify",
+      "winnerPattern": "trust-proof",
+      "winnerFamily": "ai-web3-action",
+      "chainPrimitive": "Pharos on-chain once-latch state plus explorer/proof evidence",
+      "userAction": "run a safe agent action once, replay it, and see the duplicate rejected by the same latch key",
+      "proofSurface": "Pharos tx hash, LatchConsumed event, capsule JSON, and verifier report",
+      "genericCloneToAvoid": "wallet dashboard, token list, NFT mint, fake receipt, or crypto chatbot"
+    },
+    "contractsFramework": "hardhat",
+    "contract": "contracts/OnceLatchRegistry.sol",
+    "walletLibs": [
+      "viem"
+    ],
+    "envBakedDemo": true,
+    "demoWalletPlacement": "server-side restricted relayer with visible address/chain/balance health in app chrome",
+    "demoWalletStatus": [
+      "address",
+      "chain",
+      "balance",
+      "connected/degraded"
+    ],
+    "demoRoles": [
+      "guest",
+      "reviewer"
+    ]
+  },
+  "deploy": {
+    "frontend": "cloudflare-workers",
+    "backend": "cloudflare-workers",
+    "adapter": "@opennextjs/cloudflare",
+    "bindings": {
+      "d1": [
+        "DB"
+      ],
+      "kv": [],
+      "r2": [],
+      "queues": []
+    },
+    "contracts": "Hardhat deploy to Pharos Atlantic Testnet",
+    "production_url": "",
+    "smoke_tested_at": "",
+    "cloudflare_override_reason": ""
+  },
+  "required_env": [
+    {
+      "name": "PHAROS_RPC_URL",
+      "scope": "server",
+      "required_for": "Pharos Atlantic contract reads/writes and proof fetches",
+      "official_key_url": "https://docs.pharosnetwork.xyz/",
+      "storage": ".env.local, .dev.vars, and deployed environment variable",
+      "status": "configured"
+    },
+    {
+      "name": "PRIVATE_KEY",
+      "scope": "server-or-local-secret",
+      "required_for": "low-value testnet relayer and contract deployment",
+      "official_key_url": "https://docs.pharosnetwork.xyz/",
+      "storage": "$HOME/use_key.txt -> .env.local/.dev.vars locally; Wrangler secret for deployed runtime if needed",
+      "status": "configured-local-secret"
+    },
+    {
+      "name": "DEPLOYER_PRIVATE_KEY",
+      "scope": "local-alias",
+      "required_for": "Hardhat deploy compatibility only",
+      "official_key_url": "https://docs.pharosnetwork.xyz/",
+      "alias_of": "PRIVATE_KEY",
+      "storage": "same value as PRIVATE_KEY; do not ask for a second key",
+      "status": "configured"
+    },
+    {
+      "name": "ONCE_LATCH_REGISTRY_ADDRESS",
+      "scope": "server-and-client-public",
+      "required_for": "consume/replay calls and docs metadata",
+      "official_key_url": "https://atlantic.pharosscan.xyz/",
+      "storage": ".env.local, .dev.vars, deployment env after contract deploy",
+      "status": "configured"
+    },
+    {
+      "name": "NEXT_PUBLIC_PHAROS_EXPLORER_URL",
+      "scope": "client-public",
+      "required_for": "visible Pharos explorer tx links",
+      "official_key_url": "https://atlantic.pharosscan.xyz/",
+      "storage": ".env.local and deployed environment variable",
+      "status": "configured"
+    }
+  ],
+  "real_data_sources": [
+    {
+      "id": "hero-chain-write",
+      "type": "chain",
+      "source": "Pharos Atlantic OnceLatchRegistry.consume transaction",
+      "evidence": "tx hash resolves on https://atlantic.pharosscan.xyz/"
+    },
+    {
+      "id": "capsule-storage",
+      "type": "storage",
+      "source": "B6 browser guest history mirror over seeded JSON evidence; D1/SQLite remains the deployment storage target",
+      "evidence": "tests/onboard.spec.ts reopens /capsules after /try saves a guest-owned capsule record"
+    },
+    {
+      "id": "proof-fetch",
+      "type": "chain",
+      "source": "Pharos RPC eth_getProof for registry storage target",
+      "evidence": "proof panel reports FETCHED, VERIFIED, FAILED, or UNAVAILABLE honestly"
+    }
+  ],
+  "sponsor_technology": [
+    {
+      "name": "Pharos Atlantic Testnet",
+      "primitive": "EVM-compatible chain state and transaction receipt",
+      "reviewer_visible_use": "first action consumes a latch on Pharos and the replay is rejected against that public latch state",
+      "proof": "Pharos tx hash and explorer link stored in ReplayFence Capsule",
+      "depth": "core mechanism, not decorative"
+    },
+    {
+      "name": "Pharos eth_getProof",
+      "primitive": "SHA-256 hexary account/storage proof surface",
+      "reviewer_visible_use": "capsule verifier derives the storage target and reports proof status for the latch record",
+      "proof": "/capsules/[capsuleId] proof panel and /verify report",
+      "depth": "core proof-detail mechanism"
+    }
+  ],
+  "sponsor_technology_not_applicable_reason": "",
+  "product_backbone": {
+    "identity": "guestSessionId in localStorage during B6; deployment target is guest cookie plus restricted server session",
+    "storage": "B6 localStorage history mirror over public/evidence seeded JSON; D1/SQLite is reserved for B8/G5 deployment storage",
+    "ownership_fields": [
+      "guestSessionId",
+      "ownerId",
+      "runId",
+      "capsuleId",
+      "walletAddress"
+    ],
+    "multi_user_proof": "second browser/incognito context pastes exported capsule into /verify and confirms derived latch result without private session state",
+    "stateless_exception_reason": ""
+  },
+  "feature_density": {
+    "user_case_beats": [
+      {
+        "user_case": "HERO PATH",
+        "beat": "Guest starts session",
+        "route": "/",
+        "action_selector": "guest-start-button",
+        "state_change": "guestSessionId is created in localStorage and visible in the Try workbench",
+        "backend_evidence": "tests/onboard.spec.ts plus replayfence.guest.session localStorage key"
+      },
+      {
+        "user_case": "HERO PATH",
+        "beat": "First action fenced",
+        "route": "/try",
+        "action_selector": "fence-run-button",
+        "state_change": "status CONSUMED and tx hash visible",
+        "backend_evidence": "demo/pharos-consume-report.json firstConsume receipt and PharosScan link"
+      },
+      {
+        "user_case": "HERO PATH",
+        "beat": "Duplicate rejected",
+        "route": "/try",
+        "action_selector": "replay-same-action-button",
+        "state_change": "status REPLAY_REJECTED and original tx shown",
+        "backend_evidence": "demo/pharos-consume-report.json replayAttempt transaction receiptStatus=reverted"
+      },
+      {
+        "user_case": "REVIEWER",
+        "beat": "Capsule reopened",
+        "route": "/capsules/[capsuleId]",
+        "action_selector": "inspect-capsule-button",
+        "state_change": "capsule detail and proof panel visible",
+        "backend_evidence": "src/app/capsules/[capsuleId]/page.tsx reads seeded proof bundle; /try mirrors guest records into localStorage history"
+      },
+      {
+        "user_case": "REVIEWER",
+        "beat": "Capsule verified",
+        "route": "/verify",
+        "action_selector": "verify-capsule-button",
+        "state_change": "verification report saved and visible",
+        "backend_evidence": "src/app/verify/verify-client.jsx recomputes hashes; Playwright route/click smoke and tests/onboard.spec.ts pass"
+      },
+      {
+        "user_case": "DEVELOPER",
+        "beat": "Skill snippet copied",
+        "route": "/docs/skill",
+        "action_selector": "copy-install-button",
+        "state_change": "copy success toast and reusable wrapper visible",
+        "backend_evidence": "packages/replayfence-skill source, src/app/docs/skill/page.tsx, and OpenClaw install evidence"
+      }
+    ]
+  },
+  "operability": {
+    "fresh_user_hero_path": "Fresh Playwright context starts at /, clicks Try as Guest, reveals consume/replay evidence, and opens /capsules. See tests/onboard.spec.ts.",
+    "public_access": "Guest evidence workbench with no wallet or login on the hero flow; fresh Pharos writes remain CLI/local until the restricted relayer ships.",
+    "reset_or_seed_strategy": "Seeded OpenClaw and Pharos reports are safe public examples; guest localStorage history can be cleared from /capsules without deleting seeds.",
+    "abuse_limits": "No private relayer key is exposed in the browser; local guest history is capped at 12 records; CLI fresh writes require local env secrets."
+  },
+  "prd_coverage": {
+    "source": "pitch/project_prd.md",
+    "minimum": "every P0/P1 REQ-### row has route/API/real-data/test/deploy evidence before recording"
+  },
+  "extras": {
+    "open_questions": [
+      "Need D1/SQLite deployment storage and restricted public relayer before claiming public fresh-chain writes.",
+      "Need exact DoraHacks form fields rechecked during G7 before final submission copy."
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "sessionFile": "/Users/rick/.openclaw/agents/main/sessions/9ea43a72-facf-49d2-a092-ba99e5a93ff5.jsonl",
+  "recordCount": 12,
+  "toolCalls": [
+    {
+      "id": "chatcmpl-tool-afaf186939cf4381",
+      "name": "read",
+      "arguments": {
+        "path": "/Users/rick/.openclaw/workspace/skills/replayfence/SKILL.md"
+      },
+      "path": "/Users/rick/.openclaw/workspace/skills/replayfence/SKILL.md"
+    },
+    {
+      "id": "chatcmpl-tool-a527e893edfc2041",
+      "name": "exec",
+      "arguments": {
+        "command": "mkdir -p /Users/rick/Documents/Project/Hackathon/Pharos/demo && node /Users/rick/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs demo --reset --format pretty --out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --transcript /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-skill-showcase.out --json-out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-demo-output.json --pharos-report /Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json",
+        "timeout": 60
+      },
+      "command": "mkdir -p /Users/rick/Documents/Project/Hackathon/Pharos/demo && node /Users/rick/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs demo --reset --format pretty --out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --transcript /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-skill-showcase.out --json-out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-demo-output.json --pharos-report /Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json"
+    },
+    {
+      "id": "chatcmpl-tool-a9a76fc9fbaba7e3",
+      "name": "exec",
+      "arguments": {
+        "command": "node /Users/rick/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs verify --capsule /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --format pretty --json-out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-verify-output.json",
+        "timeout": 30
+      },
+      "command": "node /Users/rick/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs verify --capsule /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --format pretty --json-out /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-verify-output.json"
+    }
+  ],
+  "toolResults": [
+    {
+      "id": "chatcmpl-tool-afaf186939cf4381",
+      "name": "read",
+      "preview": "---\nname: replayfence\ndescription: Use ReplayFence to fence duplicate agent actions, derive stable action hashes and latch keys, run an OpenClaw-installable exactly-once demo, create ReplayFence Capsules, and verify whether a replay was rejected. Use when an agent needs a reusable Pharos/OpenClaw action replay guard or proof capsule workflow.\n---\n\n# ReplayFence\n\nReplayFence is an OpenClaw-installable skill for exactly-once agent actions. It helps a generic agent canonicalize an action, derive a stable latch key, run a first attempt, reject the exact replay, and export a ReplayFence Capsule.\n\n## When To Use\n\nUse this skill when the user asks to:\n\n- prevent duplicate/replayed agent tool actions;\n- derive a stable action fingerprint or latch key;\n- demonstrate ReplayFence inside OpenClaw;\n- export or verify a ReplayFence Capsule;\n- explain or run the Pharos once-latch flow.\n\n## Core Rule\n\nNever claim a Pharos transaction or proof succeeded unless the command used live Pharos configuration and returned real tx/proof evidence. Local demo mode is useful, but it must be labeled `local-demo`.\n\n## Quick Demo\n\nFrom this skill directory, run:\n\n```bash\nnode scripts/replayfence.mjs demo --reset"
+    },
+    {
+      "id": "chatcmpl-tool-a527e893edfc2041",
+      "name": "exec",
+      "preview": "ReplayFence OpenClaw Skill Demo\n\nMode: local-demo\nPurpose: prove a normal installed skill can canonicalize one agent action, consume it once, reject the exact replay, and export a capsule.\n\n1. Canonicalize action\n  label: Agent payout intent: invoice-042\n  tool: demoTreasury.requestPayout\n  actor scope: openclaw-guest-demo\n  volatile fields stripped: timestamp\n  canonical SHA-256: 0xdd7634577227cb76521993f968a38f3fca5f581a579c94b49cdff45be3186ede\n\n2. Derive latch\n  chain id: 688689\n  registry: 0x000000000000000000000000000000000000f3ce\n  latch key: 0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d\n\n3. Execute twice\n  first attempt: CONSUMED\n  replay attempt: REPLAY_REJECTED\n  replay reason: same latch key already consumed\n\n4. Export capsule\n  capsule id: capsule_414687b9b2783542\n  capsule path: /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json\n  verifier hint: node scripts/replayfence.mjs verify --capsule /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json --format pretty\n\nLive Pharos evidence attached\n  report: /Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report"
+    },
+    {
+      "id": "chatcmpl-tool-a9a76fc9fbaba7e3",
+      "name": "exec",
+      "preview": "ReplayFence Capsule Verify\n\nCapsule: /Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json\nEnvironment: local-demo\nCapsule id: capsule_414687b9b2783542\n\nChecks\n  canonical hash match: PASS\n  latch key match: PASS\n  replay rejected: PASS\n\nResult: VERIFIED\nNote: Verified deterministic local capsule fields. This is not Pharos proof verification."
+    }
+  ]
+}

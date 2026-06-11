@@ -1,0 +1,44 @@
+{
+  "schema": "replayfence.openclaw-agent-video-cues.v1",
+  "generatedAt": "2026-06-11T09:11:29.184Z",
+  "sessionKey": "agent:main:replayfence-prompt-video-1781169029004",
+  "prompt": "demo/openclaw-agent-prompt.md",
+  "rawLog": "demo/openclaw-agent-video-output.raw.log",
+  "json": "demo/openclaw-agent-video-output.json",
+  "summary": "demo/openclaw-agent-video-summary.json",
+  "sessionEvents": "demo/openclaw-agent-video-session-events.json",
+  "webm": "pitch/recording/openclaw-agent-prompt-demo.webm",
+  "mp4": "pitch/recording/openclaw-agent-prompt-demo.mp4",
+  "cues": [
+    {
+      "id": "01-model",
+      "title": "StepFun model route inside OpenClaw",
+      "at_ms": 22
+    },
+    {
+      "id": "02-skill",
+      "title": "ReplayFence skill visible to the agent",
+      "at_ms": 6070
+    },
+    {
+      "id": "03-prompt",
+      "title": "Prompt sent to OpenClaw",
+      "at_ms": 12231
+    },
+    {
+      "id": "04-agent",
+      "title": "Live OpenClaw agent turn",
+      "at_ms": 20670
+    },
+    {
+      "id": "05-tools",
+      "title": "OpenClaw session tool calls",
+      "at_ms": 37933
+    },
+    {
+      "id": "06-result",
+      "title": "ReplayFence result produced by the agent",
+      "at_ms": 44040
+    }
+  ]
+}

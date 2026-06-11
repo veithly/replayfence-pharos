@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00.000 --> 00:40.160
+Watch the prompt itself. A user asks in one short line: use ReplayFence to protect a payout, run it once, try the same payout again, and verify the capsule. The agent chooses the installed skill, not a custom app. ReplayFence removes volatile fields, makes a stable fingerprint, and consumes the latch on the first run. When the exact action comes back, the skill rejects it as a replay. The agent answers with consumed, replay rejected, verified, and the capsule path. For a user, retries and duplicate clicks no longer become duplicate payouts.
+
+00:40.160 --> 00:50.080
+That terminal proof is the raw agent run from a plain user request. Next, the browser shows the same guarantee where a user would click.
+
+00:50.080 --> 01:20.800
+Now the same behavior becomes a user flow. Execute once. Replay the same action. Open the saved capsule. Verify it later from a separate screen. The capsule carries the canonical action hash, latch status, verifier result, and Pharos report metadata. Support can inspect history. Developers can verify without trusting the chat, then install the skill, call the SDK, or wire the contract path.

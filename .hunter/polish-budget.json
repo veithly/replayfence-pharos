@@ -1,0 +1,19 @@
+{
+  "$schema": "polish-budget.v1",
+  "locked_before_recording": true,
+  "created_at": "2026-06-11T03:24:05Z",
+  "hours_reserved": 4,
+  "recording_priority": "OpenClaw installed-skill demo first, then product workbench proof.",
+  "product_gate_commands": [
+    "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/audit_project.mjs . --phase build-plan,external-skills,product-slice,feature-density,claims,runtime,realness",
+    "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/audit_runtime_interaction.mjs . --url http://127.0.0.1:4387",
+    "node /Users/rick/Documents/MySkill/hackathonhunter-skill/scripts/visual_qa_scan.mjs . --url http://127.0.0.1:4388 --routes /,/openclaw-demo,/try,/capsules,/verify,/docs/skill --fail-on error"
+  ],
+  "visual_qa_passed_at": "2026-06-11T03:30:42Z",
+  "visual_qa_report": "pitch/visual-qa/report.json",
+  "runtime_report": ".hunter/runtime-interaction.report.json",
+  "openclaw_showcase_transcript": "demo/openclaw-skill-showcase.out",
+  "hyperframes_skill_loaded": true,
+  "director_board": "pitch/recording/video-outline.md",
+  "no_video_before_product_pass": "G4 local product loop passed; npm test, npm run build, audit_project, audit_runtime_interaction, and visual_qa_scan passed after OpenClaw showcase changes."
+}

@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "environment": "local-demo",
+  "checks": {
+    "canonicalHashMatch": true,
+    "latchKeyMatch": true,
+    "replayRejected": true
+  },
+  "note": "Verified deterministic local capsule fields. This is not Pharos proof verification.",
+  "jsonOut": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-verify-output.json"
+}

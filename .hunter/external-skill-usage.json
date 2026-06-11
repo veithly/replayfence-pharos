@@ -1,0 +1,74 @@
+{
+  "skills": [
+    {
+      "skill": "hackathonhunter",
+      "installed_path": "/Users/rick/Documents/MySkill/hackathonhunter-skill/SKILL.md",
+      "loaded_at": "2026-06-10T13:50:00+08:00",
+      "why_used": "User explicitly requested the full HackathonHunter workflow for the Pharos DoraHacks submission.",
+      "output_file": "pitch/project_build_plan.md",
+      "evidence_summary": "Loaded SKILL.md and G1-G4 references; created G1 evidence, G2 product slice, G3 visual contract, and G4 build plan.",
+      "fallback_if_missing": "Manual hackathon workflow with explicit blocker notes.",
+      "status": "used"
+    },
+    {
+      "skill": "gpt-pro-think",
+      "installed_path": "/Users/rick/Documents/MySkill/gpt-pro-think/SKILL.md",
+      "loaded_at": "2026-06-10T13:55:00+08:00",
+      "why_used": "HackathonHunter requires GPT Pro Deep research for concept selection and subsequent ideation/judging/spec decisions.",
+      "output_file": "pitch/gpt-pro/responses/spec/01-best-prd-uiux-response.md",
+      "evidence_summary": "Deep research, three ideation windows, three judging windows, and best PRD/UIUX spec completed and saved under pitch/gpt-pro.",
+      "fallback_if_missing": "Gate would enter HUMAN_BLOCKED; no local substitute allowed for required strategic research.",
+      "status": "complete"
+    },
+    {
+      "skill": "skill-creator",
+      "installed_path": "/Users/rick/.codex/skills/.system/skill-creator/SKILL.md",
+      "loaded_at": "2026-06-11T00:00:00+08:00",
+      "why_used": "The user redirected P0 toward an installable OpenClaw skill; skill creation guidance was used for concise SKILL.md structure and bundled resources.",
+      "output_file": "skills/replayfence/SKILL.md",
+      "evidence_summary": "Created a concise ReplayFence SKILL.md with clear trigger, workflow, commands, output contract, and honesty rules.",
+      "fallback_if_missing": "Write a minimal OpenClaw SKILL.md using OpenClaw docs and local validation.",
+      "status": "complete"
+    },
+    {
+      "skill": "gpt-taste",
+      "installed_path": "/Users/rick/.codex/skills/gpt-taste/SKILL.md",
+      "loaded_at": "2026-06-11T00:02:00+08:00",
+      "why_used": "HackathonHunter G3 requires installed gpt-taste for visual direction and hero/layout math before implementation.",
+      "output_file": "pitch/visual-build-contract.md",
+      "evidence_summary": "Recorded a design_plan selecting an operational command-rail hero, state-machine triptych, proof capsule panel, and label/button checks.",
+      "fallback_if_missing": "G3 would block; do not replace with generic Tailwind taste.",
+      "status": "complete"
+    },
+    {
+      "skill": "impeccable",
+      "installed_path": "/Users/rick/.skills-manager/skills/impeccable/SKILL.md",
+      "loaded_at": "2026-06-11T00:03:00+08:00",
+      "why_used": "HackathonHunter G3 requires installed impeccable for register, palette, typography, layout, and anti-slop audit.",
+      "output_file": "pitch/visual-build-contract.md",
+      "evidence_summary": "Ran context and palette scripts, created PRODUCT.md after NO_PRODUCT_MD, loaded product register, and recorded restrained product UI audit notes.",
+      "fallback_if_missing": "G3 would block or use a documented human blocker.",
+      "status": "complete"
+    },
+    {
+      "skill": "logo-generator",
+      "installed_path": "/Users/rick/.skills-manager/skills/logo-generator/SKILL.md",
+      "loaded_at": "2026-06-11T00:04:00+08:00",
+      "why_used": "PRD and G3 require a recognizable wordmark/logomark brand minimum.",
+      "output_file": "public/brand/logomark.svg",
+      "evidence_summary": "Created a geometric latch/fence SVG brand pack with logomark, wordmark, mono mark, and OG PNG.",
+      "fallback_if_missing": "Use a simple text wordmark and record logo polish as a cut.",
+      "status": "complete"
+    },
+    {
+      "skill": "hyperframes",
+      "installed_path": "/Users/rick/.skills-manager/skills/hyperframes/SKILL.md",
+      "loaded_at": "2026-06-11T00:12:00+08:00",
+      "why_used": "Stack lock uses combined-pitch-demo mode with HyperFrames as the final video composer.",
+      "output_file": "pitch/project_build_plan.md",
+      "evidence_summary": "Loaded HyperFrames skill enough to record video composition constraints; actual video work remains blocked until product/runtime gates pass.",
+      "fallback_if_missing": "G6 video gate would block; do not substitute an unsupported composer.",
+      "status": "complete"
+    }
+  ]
+}

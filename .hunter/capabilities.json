@@ -1,0 +1,20 @@
+{
+  "$schema": "replayfence.capabilities.v1",
+  "latency_budget_ms": {
+    "first_session_complete": 60000,
+    "local_capsule_verify": 5000,
+    "pharos_report_load": 2000
+  },
+  "guest_mode": {
+    "enabled": true,
+    "login_required_before_value": false,
+    "session_key": "replayfence.guest.session",
+    "history_key": "replayfence.capsule.history.v1"
+  },
+  "limits": {
+    "public_demo_mode": "seeded evidence workbench until restricted relayer is deployed",
+    "max_local_history_records": 12,
+    "chain_write_guardrail": "fresh chain writes are local CLI only in this build; public UI shows recorded live Pharos reports"
+  }
+}
+

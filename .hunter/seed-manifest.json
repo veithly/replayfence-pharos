@@ -1,0 +1,37 @@
+{
+  "$schema": "seed-manifest.v1",
+  "generatedAt": "2026-06-11T01:25:00+08:00",
+  "safeToPublish": true,
+  "seeds": [
+    {
+      "id": "openclaw-local-capsule",
+      "type": "local-demo-capsule",
+      "source": "demo/replayfence-capsule.json",
+      "publicCopy": "public/evidence/replayfence-capsule.json",
+      "ownerModel": "seeded-example",
+      "notes": "Local deterministic capsule; not a Pharos tx proof."
+    },
+    {
+      "id": "pharos-live-consume-report",
+      "type": "pharos-live-report",
+      "source": "demo/pharos-consume-report.json",
+      "publicCopy": "public/evidence/pharos-consume-report.json",
+      "ownerModel": "seeded-example plus guest localStorage mirror",
+      "notes": "Contains first consume tx and reverted replay tx. No private key material."
+    },
+    {
+      "id": "pharos-deploy-report",
+      "type": "pharos-deploy-report",
+      "source": "demo/pharos-deploy-report.json",
+      "publicCopy": "public/evidence/pharos-deploy-report.json",
+      "ownerModel": "seeded-example",
+      "notes": "Public contract address and deployment transaction only."
+    }
+  ],
+  "guestState": {
+    "sessionKey": "replayfence.guest.session",
+    "historyKey": "replayfence.capsule.history.v1",
+    "ownershipFields": ["ownerId", "guestSessionId", "capsuleId", "walletAddress"]
+  }
+}
+

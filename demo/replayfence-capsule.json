@@ -1,0 +1,62 @@
+{
+  "schema": "replayfence.capsule.v1",
+  "capsuleId": "capsule_fcfb807cd480ae16",
+  "createdAt": "2026-06-11T03:22:36.631Z",
+  "environment": "local-demo",
+  "action": {
+    "label": "Agent payout intent: invoice-042",
+    "toolId": "demoTreasury.requestPayout",
+    "actorScope": "openclaw-guest-demo",
+    "canonicalJson": {
+      "actorScope": "openclaw-guest-demo",
+      "label": "Agent payout intent: invoice-042",
+      "method": "requestPayout",
+      "params": {
+        "amount": "100",
+        "invoiceId": "invoice-042",
+        "unit": "DEMO"
+      },
+      "risk": "duplicate payout if replayed",
+      "target": "demo-treasury",
+      "toolId": "demoTreasury.requestPayout"
+    },
+    "canonicalHashSha256": "0xdd7634577227cb76521993f968a38f3fca5f581a579c94b49cdff45be3186ede",
+    "actionHash": "0xdd7634577227cb76521993f968a38f3fca5f581a579c94b49cdff45be3186ede"
+  },
+  "latch": {
+    "chainId": 688689,
+    "registryAddress": "0x000000000000000000000000000000000000f3ce",
+    "latchKey": "0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d",
+    "status": "REPLAY_REJECTED"
+  },
+  "attempts": {
+    "first": {
+      "attemptId": "attempt_ed0ae4bc-721a-43d3-8085-14d06a737691",
+      "status": "CONSUMED",
+      "latchKey": "0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d",
+      "actionHash": "0xdd7634577227cb76521993f968a38f3fca5f581a579c94b49cdff45be3186ede",
+      "consumedAt": "2026-06-11T03:22:36.630Z",
+      "environment": "local-demo"
+    },
+    "replay": {
+      "status": "REPLAY_REJECTED",
+      "latchKey": "0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d",
+      "originalAttemptId": "attempt_ed0ae4bc-721a-43d3-8085-14d06a737691",
+      "originalConsumedAt": "2026-06-11T03:22:36.630Z",
+      "reason": "same latch key already consumed"
+    }
+  },
+  "proof": {
+    "source": "local-demo",
+    "verifierStatus": "NOT_REQUESTED",
+    "verifierNotes": [
+      "This capsule was produced by local OpenClaw demo mode.",
+      "Do not treat it as a Pharos transaction or eth_getProof result."
+    ]
+  },
+  "safety": {
+    "environment": "local-demo",
+    "actionMode": "demo-safe",
+    "disclaimer": "Local demo proves deterministic replay fencing only. Live Pharos mode is required for tx/proof claims."
+  }
+}

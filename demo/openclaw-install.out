@@ -1,0 +1,13 @@
+Installing to /Users/rick/.openclaw/workspace/skills/replayfence…
+Installed replayfence from path -> /Users/rick/.openclaw/workspace/skills/replayfence
+replayfence ✓ Ready
+
+Use ReplayFence to fence duplicate agent actions, derive stable action hashes and latch keys, run an OpenClaw-installable exactly-once demo, create ReplayFence Capsules, and verify whether a replay was rejected. Use when an agent needs a reusable Pharos/OpenClaw action replay guard or proof capsule workflow.
+
+Details:
+  Source: openclaw-workspace
+  Path: ~/.openclaw/workspace/skills/replayfence/SKILL.md
+  Visible to model: yes
+  Available as command: yes
+
+Tip: use `openclaw skills search`, `openclaw skills install`, and `openclaw skills update` for ClawHub-backed skills.

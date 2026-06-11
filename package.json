@@ -1,0 +1,45 @@
+{
+  "name": "replayfence",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --test tests/*.test.mjs",
+    "replayfence:demo": "node skills/replayfence/scripts/replayfence.mjs demo --reset --out demo/replayfence-capsule.json",
+    "replayfence:verify": "node skills/replayfence/scripts/replayfence.mjs verify --capsule demo/replayfence-capsule.json",
+    "replayfence:showcase": "node skills/replayfence/scripts/replayfence.mjs demo --reset --format pretty --out demo/replayfence-capsule.json --transcript demo/openclaw-skill-showcase.out --json-out demo/replayfence-demo-output.json --pharos-report demo/pharos-consume-report.json",
+    "record:openclaw": "node scripts/record-openclaw-skill-demo.mjs",
+    "record:openclaw-agent": "node scripts/record-openclaw-agent-demo.mjs",
+    "record:openclaw-tui": "node scripts/record-openclaw-tui-interactive-demo.mjs",
+    "record:user-cases": "node scripts/record-user-case-demo.mjs",
+    "contract:compile": "node scripts/compile-contract.mjs",
+    "contract:deploy:pharos": "node scripts/deploy-pharos.mjs",
+    "contract:consume:pharos": "node scripts/pharos-consume-demo.mjs"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.16",
+    "@radix-ui/react-tabs": "^1.1.14",
+    "dotenv": "latest",
+    "lucide-react": "^1.17.0",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "solc": "latest",
+    "viem": "latest",
+    "zod": "latest"
+  },
+  "overrides": {
+    "tmp": "^0.2.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.2",
+    "@types/react": "^19.2.17",
+    "@xterm/xterm": "^6.0.0",
+    "playwright": "^1.60.0",
+    "typescript": "^6.0.3"
+  }
+}

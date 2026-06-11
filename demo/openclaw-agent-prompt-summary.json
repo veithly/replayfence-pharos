@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-06-11T09:11:02.612Z",
+  "command": "set -a; source \"$HOME/use_key.txt\" >/dev/null 2>&1; set +a\nPROMPT=\"$(cat demo/openclaw-agent-prompt.md)\"\nnpx --yes openclaw --no-color --log-level silent agent --local --agent main --model stepfun/step-3.7-flash --session-key agent:main:replayfence-prompt-video-1781169029004 --message \"$PROMPT\" --timeout 600 --verbose on --json",
+  "sessionKey": "agent:main:replayfence-prompt-video-1781169029004",
+  "provider": "stepfun",
+  "model": "step-3.7-flash",
+  "harness": "openclaw",
+  "runner": "embedded",
+  "fallbackUsed": false,
+  "replayfenceVisible": true,
+  "toolSummary": {
+    "calls": 3,
+    "tools": [
+      "read",
+      "exec"
+    ],
+    "failures": 0
+  },
+  "sessionFile": "/Users/rick/.openclaw/agents/main/sessions/9ea43a72-facf-49d2-a092-ba99e5a93ff5.jsonl",
+  "sessionEventsFile": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-video-session-events.json",
+  "artifacts": {
+    "capsulePath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json",
+    "verifyPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-verify-output.json",
+    "pharosPath": "/Users/rick/Documents/Project/Hackathon/Pharos/demo/pharos-consume-report.json",
+    "environment": "local-demo",
+    "capsuleId": "capsule_414687b9b2783542",
+    "firstStatus": "CONSUMED",
+    "replayStatus": "REPLAY_REJECTED",
+    "latchKey": "0xa9cabb066060a15f073d619b6570f6c7cbf75b5255a955ab053297b7cbde791d",
+    "verifyStatus": "VERIFIED",
+    "pharosStatus": "CONSUMED_AND_REPLAY_REJECTED",
+    "chainId": 688689,
+    "registryAddress": "0xf3cb65898bc692495c64e2fa3981acbab2770a73"
+  },
+  "finalText": "## ReplayFence Skill Demo — Result\n\n**Environment:** `local-demo` (terminal run). A separately recorded Pharos report is attached at `pharos-consume-report.json`, but the demo run itself is local-demo evidence per the skill's honesty rule.\n\n**Capsule path:** `/Users/rick/Documents/Project/Hackathon/Pharos/demo/openclaw-agent-replayfence-capsule.json`\n\n| Step | Status |\n|------|--------|\n| First attempt | `CONSUMED` |\n| Replay attempt | `REPLAY_REJECTED` (reason: same latch key already consumed) |\n| Verifier | `VERIFIED` (canonical hash match ✅, latch key match ✅, replay rejected ✅) |\n\n**Attached artifacts:**\n- `openclaw-agent-replayfence-capsule.json` — capsule\n- `openclaw-agent-skill-showcase.out` — pretty transcript\n- `openclaw-agent-demo-output.json` — JSON demo output\n- `openclaw-agent-verify-output.json` — verifier JSON output\n- `pharos-consume-report.json` — recorded Pharos consume/replay report (status: `CONSUMED_AND_REPLAY_REJECTED`, first consume tx `0x7dcfe6f8...cc74941d`, replay tx `0xf428dbdf...bbdabe6d`, decoded error `ReplayFenceReplay`)"
+}

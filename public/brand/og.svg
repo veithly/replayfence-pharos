@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101411"/>
+  <rect x="70" y="70" width="1060" height="490" rx="38" fill="#151b17" stroke="#2d3c34" stroke-width="3"/>
+  <g transform="translate(120 160) scale(2.4)">
+    <rect x="10" y="14" width="80" height="72" rx="18" fill="#101411" stroke="#2d3c34"/>
+    <path d="M30 50h40" stroke="#38f8b8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M32 30v40M50 24v52M68 30v40" stroke="#f4f0e6" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="50" cy="50" r="13" fill="#101411" stroke="#ff5a66" stroke-width="5"/>
+  </g>
+  <text x="380" y="250" fill="#f4f0e6" font-size="82" font-family="Arial, Helvetica, sans-serif" font-weight="800">ReplayFence</text>
+  <text x="384" y="318" fill="#38f8b8" font-size="34" font-family="Menlo, monospace">OpenClaw-installable Pharos once-latch skill</text>
+  <text x="384" y="392" fill="#cbd8ce" font-size="32" font-family="Arial, Helvetica, sans-serif">Run once. Replay rejected. Capsule exported.</text>
+</svg>

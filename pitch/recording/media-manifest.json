@@ -1,0 +1,126 @@
+{
+  "$schema": "replayfence.media-manifest.v1",
+  "generatedAt": "2026-06-11T15:41:12Z",
+  "primaryProofClip": {
+    "kind": "replayfence-skill-demo-english-narrated",
+    "mp4": "pitch/recording/replayfence-skill-demo-english-narrated.mp4",
+    "webm": "pitch/recording/replayfence-skill-demo-english-narrated.webm",
+    "duration": "00:01:20.80",
+    "resolution": "1920x1200",
+    "sourceClips": [
+      "pitch/recording/openclaw-tui-interactive-demo.mp4",
+      "pitch/recording/replayfence-user-cases-demo.mp4"
+    ],
+    "sourceEvidence": [
+      "demo/openclaw-tui-interactive.typescript",
+      "demo/openclaw-tui-interactive-summary.json",
+      "demo/openclaw-tui-interactive-session-events.json",
+      ".hunter/openclaw-tui-interactive.report.json",
+      "demo/openclaw-tui-replayfence-capsule.json",
+      "demo/pharos-consume-report.json"
+    ],
+    "qaFrames": [
+      "pitch/recording/qa-frames-tui/tui-12-typed-prompt.png",
+      "pitch/recording/qa-frames-tui/tui-31-final.png"
+    ],
+    "publicMirror": [
+      "public/evidence-media/replayfence-skill-demo-english-narrated.mp4",
+      "public/evidence-media/replayfence-skill-demo-english-narrated.webm",
+      "public/evidence-media/replayfence-skill-demo-english-captions.vtt",
+      "public/evidence-media/replayfence-skill-demo-english-mimo.wav",
+      "public/evidence-media/replayfence-skill-demo-english-narration.json",
+      "public/evidence-media/openclaw-tui-interactive-demo.mp4",
+      "public/evidence-media/openclaw-tui-interactive-demo.webm",
+      "public/evidence-media/openclaw-tui-interactive-session-events.json",
+      "public/evidence-media/openclaw-tui-interactive-summary.json",
+      "public/evidence-media/openclaw-tui-interactive.report.json",
+      "public/evidence-media/openclaw-tui-interactive.typescript",
+      "public/evidence/openclaw-tui-replayfence-capsule.json",
+      "public/evidence/replayfence-capsule.json"
+    ],
+    "timecodes": [
+      {
+        "id": "01-short-user-prompt",
+        "range": "00:00-00:50",
+        "proof": "OpenClaw TUI receives a short user-style prompt: protect a payout, run it once, try the same payout again, and verify the capsule."
+      },
+      {
+        "id": "02-product-flow",
+        "range": "00:50-01:17",
+        "proof": "Browser flow executes once, replays the same action, opens the saved capsule, and verifies evidence from a separate screen."
+      },
+      {
+        "id": "03-user-value",
+        "range": "01:17-01:20.80",
+        "proof": "Narration summarizes the user-facing guarantee: a risky action can be retried without turning into a duplicate payout."
+      }
+    ],
+    "rawSilentMp4": "pitch/recording/openclaw-tui-interactive-demo.mp4",
+    "userCaseMp4": "pitch/recording/replayfence-user-cases-demo.mp4",
+    "narration": {
+      "provider": "mimo",
+      "manifest": "pitch/audio/replayfence-skill-demo-english-narration.json",
+      "audio": "pitch/audio/vo.wav",
+      "captions": "public/evidence-media/replayfence-skill-demo-english-captions.vtt",
+      "publicVideo": "public/evidence-media/replayfence-skill-demo-english-narrated.mp4",
+      "publicWebm": "public/evidence-media/replayfence-skill-demo-english-narrated.webm",
+      "publicAudio": "public/evidence-media/replayfence-skill-demo-english-mimo.wav",
+      "publicCaptions": "public/evidence-media/replayfence-skill-demo-english-captions.vtt",
+      "duration": "00:01:20.80",
+      "language": "en-US"
+    }
+  },
+  "supportingProofClips": [
+    {
+      "kind": "replayfence-browser-user-cases",
+      "mp4": "pitch/recording/replayfence-user-cases-demo.mp4",
+      "webm": "pitch/recording/replayfence-user-cases-demo.webm",
+      "duration": "00:00:26.64",
+      "resolution": "1920x1200",
+      "sourceRoutes": [
+        "/try",
+        "/capsules",
+        "/verify",
+        "/docs/skill"
+      ],
+      "proof": "Runs the product-facing execute-once, replay-reject, capsule inspection, verifier, SDK, and contract docs cases."
+    },
+    {
+      "kind": "openclaw-agent-prompt-skill-demo",
+      "mp4": "pitch/recording/openclaw-agent-prompt-demo.mp4",
+      "webm": "pitch/recording/openclaw-agent-prompt-demo.webm",
+      "htmlSource": "pitch/recording/openclaw-agent-prompt-demo.html",
+      "cues": "pitch/recording/openclaw-agent-prompt-demo-cues.json",
+      "duration": "00:00:57.60",
+      "resolution": "1920x1200",
+      "sourceEvidence": [
+        "demo/openclaw-agent-prompt.md",
+        "demo/openclaw-agent-video-output.json",
+        "demo/openclaw-agent-video-session-events.json",
+        ".hunter/openclaw-agent-prompt.report.json"
+      ]
+    },
+    {
+      "kind": "openclaw-installed-skill-direct-run",
+      "mp4": "pitch/recording/openclaw-skill-demo.mp4",
+      "webm": "pitch/recording/openclaw-skill-demo.webm",
+      "htmlSource": "pitch/recording/openclaw-terminal-demo.html",
+      "cues": "pitch/recording/openclaw-skill-demo-cues.json",
+      "duration": "00:00:45.28",
+      "resolution": "1920x1200",
+      "sourceTranscripts": [
+        "demo/openclaw-install.out",
+        "demo/openclaw-skill-showcase.out",
+        "demo/openclaw-skill-verify.out"
+      ]
+    }
+  ],
+  "fullDemoPlan": "pitch/recording/video-outline.md",
+  "preRecordingQa": {
+    "unit": "npm test",
+    "build": "npm run build",
+    "hunterAudit": "audit_project.mjs --phase build-plan,external-skills,product-slice,feature-density,claims,runtime,realness",
+    "runtime": "audit_runtime_interaction.mjs . --url http://127.0.0.1:4387",
+    "visual": "visual_qa_scan.mjs . --url http://127.0.0.1:4388 --routes /,/openclaw-demo,/try,/capsules,/verify,/docs/skill --fail-on error"
+  }
+}
