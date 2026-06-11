@@ -1,3 +1,0 @@
-display_name: ReplayFence
-short_description: Fence duplicate agent actions and export proof capsules.
-default_prompt: Use ReplayFence to canonicalize an action, derive a latch key, run a local OpenClaw demo, and explain whether the replay was rejected.

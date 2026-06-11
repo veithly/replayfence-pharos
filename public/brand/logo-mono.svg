@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="ReplayFence mono logo">
-  <rect x="10" y="14" width="80" height="72" rx="18" fill="currentColor" opacity="0.08"/>
-  <path d="M30 50h40" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-  <path d="M32 30v40M50 24v52M68 30v40" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="50" cy="50" r="13" fill="none" stroke="currentColor" stroke-width="5"/>
-</svg>
