@@ -1,116 +1,172 @@
+<div align="center">
+
+<img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="ReplayFence workbench" width="100%" />
+
 # ReplayFence
 
-ReplayFence is an OpenClaw-installable Skill that blocks duplicate agent actions on Pharos.
+### ReplayFence blocks duplicate agent actions on Pharos in 60 seconds.
 
-A user can ask a normal OpenClaw prompt such as:
+*Run one safe agent action, replay the exact same fingerprint, and inspect the Pharos receipt plus proof capsule without trusting a narrator.*
 
-```text
-Can you use ReplayFence to protect a payout for me?
+**Quick links:**
+[Live app](https://replayfence-pharos.pages.dev/) ·
+[OpenClaw demo page](https://replayfence-pharos.pages.dev/openclaw-demo) ·
+[Public narrated video](https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4) ·
+[OpenClaw evidence](./demo/openclaw-install.md) ·
+[TUI prompt transcript](./demo/openclaw-tui-interactive.typescript) ·
+[Narrated skill demo](./demo/replayfence-skill-demo-english-narrated.mp4) ·
+[Skill source](./skills/replayfence/SKILL.md) ·
+[Pharos consume report](./demo/pharos-consume-report.json) ·
+[Agent capsule](./demo/openclaw-tui-replayfence-capsule.json)
+
+</div>
+
+---
+
+## Why It Matters
+
+Agent runtimes retry tool calls after timeouts, queue redelivery, double clicks, and model loops. For payments, deploys, orders, or privileged API calls, one duplicate side effect is enough to create real loss.
+
+ReplayFence turns the usual private idempotency log into a reusable Skill primitive: a deterministic action hash, a Pharos once-latch, a rejected replay, and a portable capsule another reviewer can verify.
+
+| Question | Private retry log | ReplayFence |
+| --- | --- | --- |
+| Can another agent inspect it? | Usually no | Yes, via capsule JSON |
+| Is the replay result public? | No | Yes, via Pharos tx/revert evidence |
+| Does it install as a reusable skill? | No | Yes, OpenClaw reports ready |
+
+## Demo Path
+
+<table>
+  <tr>
+    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="ReplayFence first screen" /></td>
+    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="Replay rejection workbench" /></td>
+  </tr>
+  <tr>
+    <td><b>1.</b> Open the workbench and start as a guest.</td>
+    <td><b>2.</b> Reveal first consume, then replay the same action.</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="Capsule verifier" /></td>
+    <td width="50%"><img src="https://replayfence-pharos.pages.dev/brand/og.png" alt="Mobile first run" /></td>
+  </tr>
+  <tr>
+    <td><b>3.</b> Verify the capsule or live Pharos report.</td>
+    <td><b>4.</b> The first screen remains usable on mobile.</td>
+  </tr>
+</table>
+
+## Quick Start
+
+```bash
+npm install
+cp .env.example .env.local
+npm run replayfence:showcase
+npm run replayfence:verify
 ```
 
-The agent loads the installed Skill, canonicalizes the action, consumes the Pharos latch once, tries the exact same action again, rejects the replay, and returns a verifiable capsule.
-
-## Demo
-
-- Demo video: [`demo/replayfence-skill-demo-english-narrated.mp4`](./demo/replayfence-skill-demo-english-narrated.mp4)
-- Recorded OpenClaw prompt transcript: [`demo/openclaw-tui-interactive.typescript`](./demo/openclaw-tui-interactive.typescript)
-- Agent-created capsule: [`demo/openclaw-tui-replayfence-capsule.json`](./demo/openclaw-tui-replayfence-capsule.json)
-
-## Install The Skill In OpenClaw
-
-From this repository:
+To try it through OpenClaw, install the skill first, then type a normal prompt in the TUI:
 
 ```bash
 npx --yes openclaw skills install ./skills/replayfence --as replayfence --force
 npx --yes openclaw skills info replayfence
-```
-
-Expected result:
-
-```text
-replayfence ✓ Ready
-Visible to model: yes
-Available as command: yes
-```
-
-The Skill source lives at [`skills/replayfence/SKILL.md`](./skills/replayfence/SKILL.md).
-
-## Use It Through A Normal Prompt
-
-Start OpenClaw TUI:
-
-```bash
 npx --yes openclaw --no-color tui --local --timeout-ms 600000
 ```
 
-Type a user-style prompt:
+Prompt:
 
 ```text
 Can you use ReplayFence to protect a payout for me? Run it once, try the exact same payout again, verify the proof capsule, and tell me whether the duplicate was blocked.
 ```
 
-The recorded demo shows OpenClaw doing four real tool steps:
+Public judge path:
 
-1. Read the installed `replayfence` Skill.
-2. Run the ReplayFence demo script.
-3. Verify the exported capsule.
-4. Read the capsule and summarize the result.
+- Live app: <https://replayfence-pharos.pages.dev/>
+- OpenClaw prompt demo: <https://replayfence-pharos.pages.dev/openclaw-demo>
+- Browser workbench: <https://replayfence-pharos.pages.dev/try>
+- Capsule verifier: <https://replayfence-pharos.pages.dev/verify>
+- Public video: <https://replayfence-pharos.pages.dev/evidence-media/replayfence-skill-demo-english-narrated.mp4>
 
-Evidence:
-
-- TUI transcript: [`demo/openclaw-tui-interactive.typescript`](./demo/openclaw-tui-interactive.typescript)
-- TUI tool calls: [`demo/openclaw-tui-interactive-session-events.json`](./demo/openclaw-tui-interactive-session-events.json)
-- Agent-created capsule: [`demo/openclaw-tui-replayfence-capsule.json`](./demo/openclaw-tui-replayfence-capsule.json)
-
-## Run The Skill Directly
+Run the evidence checks:
 
 ```bash
-npm install
-npm run replayfence:showcase
+npm test
+npm run contract:compile
+npm run replayfence:demo
 npm run replayfence:verify
 ```
 
-This creates or refreshes:
-
-- `demo/replayfence-capsule.json`
-- `demo/replayfence-demo-output.json`
-- `demo/replayfence-verify-output.json`
-
-## Pharos Proof
-
-ReplayFence uses Pharos Atlantic Testnet as the public exactly-once latch layer.
+## Live Pharos Proof
 
 - Registry: `0xf3cb65898bc692495c64e2fa3981acbab2770a73`
 - Deploy tx: `0xba7cf7df008b812a8ffefecc7688929531496f1a6bb3030fcb331365be5c399d`
 - First consume tx: `0x7dcfe6f8306168d8c36730ea41b37606e54a294cc4931fcf268dd8aecc74941d`
 - Reverted replay tx: `0xf428dbdf2915bad77a6cc2fa8b6d6a554c98d77f8e21407fdc462cdcbbdabe6d`
 
-Evidence files:
-
-- Deploy report: [`demo/pharos-deploy-report.json`](./demo/pharos-deploy-report.json)
-- Consume/replay report: [`demo/pharos-consume-report.json`](./demo/pharos-consume-report.json)
-- Contract: [`contracts/OnceLatchRegistry.sol`](./contracts/OnceLatchRegistry.sol)
-
-To generate a fresh testnet proof with your own funded key:
+The current public workbench displays recorded live Pharos evidence. To generate a fresh local proof pair with a funded testnet key:
 
 ```bash
-cp .env.example .env.local
 npm run contract:consume:pharos
 ```
 
-Private keys must stay in `.env.local` or `.dev.vars`; both are ignored by git.
+## OpenClaw Skill Proof
 
-## What Is In This Repo
+ReplayFence is packaged as an installable OpenClaw skill. The primary judge-facing demo combines a real OpenClaw TUI prompt with the browser user flow. The prompt is typed into `openclaw tui --local`, not loaded from a file or passed with `--message`. The typed request is short and user-like: "Can you use ReplayFence to protect a payout for me?" OpenClaw reads the installed `replayfence` skill, runs the bundled demo through `exec`, verifies the capsule, and answers with the blocked duplicate result. The browser half shows the same guarantee from a user's point of view: execute once, reject the exact replay, inspect the saved capsule, and verify it later.
 
-```text
-skills/replayfence/              OpenClaw-installable Skill
-packages/replayfence-skill/      hashing, latch, and capsule helpers
-contracts/OnceLatchRegistry.sol  Pharos once-latch contract
-scripts/                         contract compile/deploy/consume helpers
-demo/                            final video, OpenClaw transcript, and proof artifacts
-tests/replayfence-skill.test.mjs focused deterministic Skill tests
+Primary TUI evidence:
+
+- English narrated skill demo: [`demo/replayfence-skill-demo-english-narrated.mp4`](./demo/replayfence-skill-demo-english-narrated.mp4)
+- Raw TUI typescript: [`demo/openclaw-tui-interactive.typescript`](./demo/openclaw-tui-interactive.typescript)
+- Session tool calls: [`demo/openclaw-tui-interactive-session-events.json`](./demo/openclaw-tui-interactive-session-events.json)
+- Agent-created capsule: [`demo/openclaw-tui-replayfence-capsule.json`](./demo/openclaw-tui-replayfence-capsule.json)
+
+The recorded command shape is:
+
+```bash
+npx --yes openclaw --no-color tui --local --session replayfence-tui-interactive-... --timeout-ms 600000
+# Prompt is typed into the TUI input line, then submitted with Enter.
+```
+
+Supporting install/run evidence:
+
+```bash
+npx --yes openclaw skills install ./skills/replayfence --as replayfence --force
+npx --yes openclaw skills info replayfence
+node ~/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs demo --reset --format pretty --out demo/replayfence-capsule.json --transcript demo/openclaw-skill-showcase.out --json-out demo/replayfence-demo-output.json --pharos-report demo/pharos-consume-report.json
+node ~/.openclaw/workspace/skills/replayfence/scripts/replayfence.mjs verify --capsule demo/replayfence-capsule.json --format pretty --json-out demo/replayfence-verify-output.json
+```
+
+Evidence lives in [`demo/openclaw-install.md`](./demo/openclaw-install.md), [`demo/openclaw-install.out`](./demo/openclaw-install.out), [`demo/openclaw-tui-replayfence-capsule.json`](./demo/openclaw-tui-replayfence-capsule.json), and the raw TUI transcript [`demo/openclaw-tui-interactive.typescript`](./demo/openclaw-tui-interactive.typescript).
+
+## How It Works
+
+```mermaid
+flowchart LR
+  A["Agent action JSON"] --> B["Canonical action hash"]
+  B --> C["Pharos latch key"]
+  C --> D["OnceLatchRegistry.consume"]
+  D --> E["First tx succeeds"]
+  D --> F["Exact replay reverts"]
+  E --> G["ReplayFence Capsule"]
+  F --> G
+  G --> H["Browser verifier"]
 ```
 
 ## Safety Boundary
 
-ReplayFence is testnet evidence for deterministic action fingerprints. It is not production wallet security, phishing detection, or general transaction simulation.
+- Testnet only: this is not production wallet security.
+- Private keys stay in `.env.local` / `.dev.vars` and are ignored by git.
+- The browser does not expose arbitrary contract writes.
+- The workbench labels local-demo evidence separately from live Pharos evidence.
+- Public fresh-chain writes should wait for the restricted relayer and D1/SQLite deployment storage.
+
+## Repository Map
+
+```text
+skills/replayfence/              OpenClaw-installable Skill
+packages/replayfence-skill/      deterministic hashing and capsule helpers
+contracts/OnceLatchRegistry.sol  Pharos once-latch contract
+scripts/pharos-consume-demo.mjs  live consume + replay rejection script
+demo/                            narrated video, TUI transcript, and proof artifacts
+tests/                           focused Node tests
+```
